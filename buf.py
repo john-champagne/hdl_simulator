@@ -1,6 +1,6 @@
 # buf.py
 
-#buf buf_name(x_out, x_in);
+# buf buf_name(x_out, x_in);
 
 from string_utils import *
 
@@ -24,7 +24,11 @@ class submod():
         hdl.add_connection(input_name, self.name + ".i")
         hdl.add_connection(self.name + ".o", output_name)
 
-        print(line)
-        print(hdl.wires)
+    def get_output(self, hdl, output_name):
+        if output_name == "o":
+            # Return the value of the input
+            return hdl.get_value(self.name + ".i")
+        else:
+            return
         
 
